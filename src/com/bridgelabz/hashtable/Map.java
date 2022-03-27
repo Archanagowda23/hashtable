@@ -105,5 +105,21 @@ public class Map<K,V> {
 
         return head.value;
     }
+    public void display() {
+        for (int i = 0; i < chainArray.size(); i++) {
+
+            System.out.println("array index : " + i);
+            HashNode<K, V> head = chainArray.get(i);
+            while (head != null) {
+
+                System.out.println(head.value);
+
+                head = head.next;
+
+            }
+
+        }
+
+    }
 
 }

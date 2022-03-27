@@ -15,5 +15,14 @@ public class Main {
         map.add(8, "ii");
         map.add(9, "uu");
         map.size();
+        System.out.println("The size is: " + map.size());
+        map.get(8);
+        System.out.println("The get value is :" + map.get(8));
+        System.out.println("Removed value is :" + map.remove(9));
+        map.remove(9);
+
+        map.display();
+
     }
 }
+
