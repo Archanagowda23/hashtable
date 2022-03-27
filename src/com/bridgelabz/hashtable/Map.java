@@ -56,5 +56,20 @@ public class Map<K,V> {
         chainArray.set(hashIndex, newNode);
 
     }
+    public V get(K key) {
+        // Find head of chain for given key
+        int hashIndex = hashIndex(key);
+        HashNode<K, V> head = chainArray.get(hashIndex);
+
+        // Search key in chain
+        while (head != null) {
+            if (head.key.equals(key))
+                return head.value;
+            head = head.next;
+        }
+
+        // If key not found
+        return null;
+    }
 
 }
