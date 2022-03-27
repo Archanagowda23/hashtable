@@ -71,5 +71,39 @@ public class Map<K,V> {
         // If key not found
         return null;
     }
+    public V remove(K key) {
+        // Apply hash function to find index for given key
+        int hashIndex = hashIndex(key);
+
+        // Get head of chain
+        HashNode<K, V> head = chainArray.get(hashIndex);
+
+        // Search for key in its chain
+        HashNode<K, V> prev = null;
+        while (head != null) {
+            // If Key found
+            if (head.key.equals(key))
+                break;
+
+            // Else keep moving in chain
+            prev = head;
+            head = head.next;
+        }
+
+        // If key was not there
+        if (head == null)
+            return null;
+
+        // Reduce size
+        size--;
+
+        // Remove key
+        if (prev != null)
+            prev.next = head.next;
+        else
+            chainArray.set(hashIndex, head.next);
+
+        return head.value;
+    }
 
 }
